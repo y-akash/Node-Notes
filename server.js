@@ -9,6 +9,11 @@ const server= http.createServer((req,res)=>{
     res.write('Hello ninjas');
     res.write('Hello again ninjas');
     res.end();
+
+
+    // if ther is only 1 time we have to write than we can directly use res.end()
+    // for Example
+    // res.end("If only 1 time we have to write");
 });
 
 
