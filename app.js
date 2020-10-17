@@ -4,9 +4,17 @@ const express= require('express');
 const app= express();
 
 // set view engine
-app.set('view engine','ejs');   // Express will automatically check in views folder for file.
-// if we want to put another name instead of views than we have use below code to specify out folder name
-// app.set('views','myViewName');
+app.set('view engine','ejs');
+
+//Middelware
+app.use((req,res,next)=>{
+    console.log('Custom middelware');
+    // after running at this line express does not know how to move on next middelware automaticaly therefore we have to explicitly specify so we use next() to move ahead
+    next();     
+});
+
+app.use(express.static('public'));
+
 
 // Routing
 app.get('/', (req, res) => {
